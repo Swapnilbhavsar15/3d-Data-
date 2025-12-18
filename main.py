@@ -26,16 +26,16 @@ def main():
     else:
         pcd_proc = pcd
 
-    # 3. Floor detection (RANSAC)
-    print("Detecting Floor")
+    # 3. Ceiling detection (RANSAC)
+    print("Detecting Ceiling")
     plane_model , inliers = pcd_proc.segment_plane(distance_threshold = 0.04, ransac_n = 3, num_iterations = 1000)
     [a, b, c, d] = plane_model
-    print(f"Floor Equation: {a:.2f}x + {b:.2f}y + {c:.2f}z + {d:.2f} = 0")
+    print(f"Ceiling Equation: {a:.2f}x + {b:.2f}y + {c:.2f}z + {d:.2f} = 0")
 
     # 4. Color
-    floor_cloud = pcd_proc.select_by_index(inliers)
+    ceiling_cloud = pcd_proc.select_by_index(inliers)
     room_cloud = pcd_proc.select_by_index(inliers, invert=True)
-    floor_cloud.paint_uniform_color([1, 0, 0])       # RED Floor
+    ceiling_cloud.paint_uniform_color([1, 0, 0])       # RED Floor
     room_cloud.paint_uniform_color([0.8, 0.8, 0.8])  # GREY Room
 
     # 5. Height
@@ -47,7 +47,7 @@ def main():
 
     # 6. Save Preview
     print(f"Saving preview to {output_preview}...")
-    combined = floor_cloud + room_cloud
+    combined = ceiling_cloud + room_cloud
     o3d.io.write_point_cloud(output_preview, combined)
     
     print("-" * 30)

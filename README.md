@@ -1,8 +1,12 @@
 # 3D Point Cloud Analysis: "Smart Segmentation"
 
-**Two-Word Summary:** robust metrics.
+This tool processes large-scale 3D scan data (`.ply`), automatically segments the dominant architectural structures, and calculates room height by intelligently handling coordinate system orientation and clutter. The input scan file(Dusseldorf.ply) consists of 29,163,226 points as shown in the figure below.
 
-This tool processes large-scale 3D scan data (`.ply`), automatically segments the dominant architectural structures, and calculates room height by intelligently handling coordinate system orientation and clutter.
+![Raw RGB Point Cloud](Düsseldorf_raw.jpg)
+
+The input file is downsampled to 324,095 points and the ceiling is detected(Dusseldorf_preview.ply) and labeled in red color. The height is also displayed when running the script.
+
+![Detected Plane](Düsseldorf_detection.png)
 
 ---
 
