@@ -21,7 +21,7 @@ sudo apt-get update
 sudo apt-get install -y libgl1 libgomp1
 ```
 
-### 2. Python Dependancies
+### 2. Python Dependencies
 Install the necessary computational libraries:
 ```bash
 pip install -r requirements.txt
