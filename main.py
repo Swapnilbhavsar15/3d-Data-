@@ -39,10 +39,10 @@ def main():
     room_cloud.paint_uniform_color([0.8, 0.8, 0.8])  # GREY Room
 
     # 5. Height
-    all_z_values = np.asarray(pcd_proc.points)[:, 1]
-    floor_z = np.percentile(all_z_values, 1)
-    max_z = np.percentile(all_z_values, 99)
-    height = max_z - floor_z
+    all_y_values = np.asarray(pcd_proc.points)[:, 1]
+    floor_y = np.percentile(all_y_values, 1)
+    max_y = np.percentile(all_y_values, 99)
+    height = max_y - floor_y
     print(f"Estimated Room Height: {height:.2f} meters")
 
     # 6. Save Preview
