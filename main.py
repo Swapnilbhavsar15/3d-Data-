@@ -39,7 +39,7 @@ def main():
     room_cloud.paint_uniform_color([0.8, 0.8, 0.8])  # GREY Room
 
     # 5. Height
-    all_z_values = np.asarray(pcd_proc.points)[:, 2]
+    all_z_values = np.asarray(pcd_proc.points)[:, 1]
     floor_z = np.percentile(all_z_values, 1)
     max_z = np.percentile(all_z_values, 99)
     height = max_z - floor_z
@@ -52,9 +52,6 @@ def main():
     
     print("-" * 30)
     print("DONE!")
-    print(f"1. Open '{output_preview}' in your extension to see the RED FLOOR.")
-    print("2. Take a screenshot for your README.")
-    print("-" * 30)
 
 if __name__ == "__main__":
     main()
